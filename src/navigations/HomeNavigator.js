@@ -23,7 +23,4 @@ const HomeNavigator = () => {
   );
 };
 
-// screens >>> Home >>> Drawer
-// screens >>>Auth >>>
-
 export default HomeNavigator;
