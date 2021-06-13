@@ -5,10 +5,10 @@ import {Image} from 'react-native';
 import Container from '../../components/common/Container';
 import CustomButton from '../../components/common/CustomButton';
 import Input from '../../components/common/Input';
-import {REGISTER} from '../../constants/routeNames';
+import {LOGIN} from '../../constants/routeNames';
 import styles from './styles';
 
-const LoginComponent = () => {
+const RegisterComponent = () => {
   const {navigate} = useNavigation();
   return (
     <Container>
@@ -21,13 +21,34 @@ const LoginComponent = () => {
 
       <View>
         <Text style={styles.title}>Welcome to Blood Bank</Text>
-        <Text style={styles.subTitle}>Please, login here</Text>
+        <Text style={styles.subTitle}>Create a free account</Text>
 
         <View style={styles.form}>
           <Input
             label="Username"
             iconPosition="right"
             placeholder="Enter Username"
+            // error={'This field is required'}
+          />
+
+          <Input
+            label="First Name"
+            iconPosition="right"
+            placeholder="Enter First name"
+            // error={'This field is required'}
+          />
+
+          <Input
+            label="Last Name"
+            iconPosition="right"
+            placeholder="Enter Last name"
+            // error={'This field is required'}
+          />
+
+          <Input
+            label="Email"
+            iconPosition="right"
+            placeholder="Enter Email"
             // error={'This field is required'}
           />
 
@@ -42,12 +63,12 @@ const LoginComponent = () => {
           <CustomButton primary title="Submit" />
 
           <View style={styles.createSection}>
-            <Text style={styles.infoText}>Need a new account?</Text>
+            <Text style={styles.infoText}>Already have an account?</Text>
             <TouchableOpacity
               onPress={() => {
-                navigate(REGISTER);
+                navigate(LOGIN);
               }}>
-              <Text style={styles.linkBtn}>Register</Text>
+              <Text style={styles.linkBtn}>Login</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -56,4 +77,4 @@ const LoginComponent = () => {
   );
 };
 
-export default LoginComponent;
+export default RegisterComponent;
