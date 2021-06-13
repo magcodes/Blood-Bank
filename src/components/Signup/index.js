@@ -8,7 +8,7 @@ import Input from '../../components/common/Input';
 import {LOGIN} from '../../constants/routeNames';
 import styles from './styles';
 
-const RegisterComponent = () => {
+const RegisterComponent = ({onSubmit, onChange, form, errors}) => {
   const {navigate} = useNavigation();
   return (
     <Container>
@@ -28,28 +28,40 @@ const RegisterComponent = () => {
             label="Username"
             iconPosition="right"
             placeholder="Enter Username"
-            // error={'This field is required'}
+            onChangeText={value => {
+              onChange({name: 'userName', value});
+            }}
+            error={errors.userName}
           />
 
           <Input
             label="First Name"
             iconPosition="right"
             placeholder="Enter First name"
-            // error={'This field is required'}
+            onChangeText={value => {
+              onChange({name: 'firstName', value});
+            }}
+            error={errors.firstName}
           />
 
           <Input
             label="Last Name"
             iconPosition="right"
             placeholder="Enter Last name"
-            // error={'This field is required'}
+            onChangeText={value => {
+              onChange({name: 'lastName', value});
+            }}
+            error={errors.lastName}
           />
 
           <Input
             label="Email"
             iconPosition="right"
             placeholder="Enter Email"
-            // error={'This field is required'}
+            onChangeText={value => {
+              onChange({name: 'email', value});
+            }}
+            error={errors.email}
           />
 
           <Input
@@ -58,9 +70,13 @@ const RegisterComponent = () => {
             icon={<Text>Show</Text>}
             secureTextEntry={true}
             iconPosition="right"
+            onChangeText={value => {
+              onChange({name: 'password', value});
+            }}
+            error={errors.password}
           />
 
-          <CustomButton primary title="Submit" />
+          <CustomButton onPress={onSubmit} primary title="Submit" />
 
           <View style={styles.createSection}>
             <Text style={styles.infoText}>Already have an account?</Text>
