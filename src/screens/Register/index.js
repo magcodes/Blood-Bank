@@ -2,10 +2,22 @@ import React from 'react';
 import {Text, View} from 'react-native';
 import {useState} from 'react';
 import RegisterComponent from '../../components/Signup';
+import envs from '../../config/env';
+import axiosInstance from '../../helpers/axiosInterceptor';
 
 const Register = () => {
   const [form, setForm] = useState({});
   const [errors, setErrors] = useState({});
+  // const {BACKEND_URL} = envs;
+
+  // console.log('BACKEND-URL :>> ', BACKEND_URL);
+  // console.log('__DEV__', __DEV__);
+
+  React.useEffect(() => {
+    axiosInstance.get('/contacts').catch(err => {
+      console.log('err', err);
+    });
+  }, []);
 
   const onChange = ({name, value}) => {
     setForm({...form, [name]: value});
