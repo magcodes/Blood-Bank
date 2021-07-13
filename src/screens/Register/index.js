@@ -1,23 +1,37 @@
+import {useNavigation} from '@react-navigation/native';
+import {useFocusEffect} from '@react-navigation/native';
 import React from 'react';
-import {Text, View} from 'react-native';
+import {useEffect} from 'react';
 import {useState} from 'react';
+import {useContext} from 'react';
 import RegisterComponent from '../../components/Signup';
-import envs from '../../config/env';
-import axiosInstance from '../../helpers/axiosInterceptor';
+import {LOGIN} from '../../constants/routeNames';
+import register, {clearAuthState} from '../../context/actions/auth/register';
+import {GlobalContext} from '../../context/Provider';
+import authState from '../../context/initialsStates/authState';
 
 const Register = () => {
   const [form, setForm] = useState({});
+  const {navigate} = useNavigation();
   const [errors, setErrors] = useState({});
-  // const {BACKEND_URL} = envs;
-
-  // console.log('BACKEND-URL :>> ', BACKEND_URL);
-  // console.log('__DEV__', __DEV__);
+  const {
+    authDispatch,
+    authState: {error, loading, data},
+  } = useContext(GlobalContext);
 
   React.useEffect(() => {
-    axiosInstance.get('/contacts').catch(err => {
-      console.log('err', err);
-    });
-  }, []);
+    if (data) {
+      navigate(LOGIN);
+    }
+  }, [data, navigate]);
+
+  useFocusEffect(
+    React.useCallback(() => {
+      if (data || error) {
+        clearAuthState()(authDispatch);
+      }
+    }, [authDispatch, data, error]),
+  );
 
   const onChange = ({name, value}) => {
     setForm({...form, [name]: value});
@@ -46,7 +60,7 @@ const Register = () => {
   };
 
   const onSubmit = () => {
-    console.log('form :>>', form);
+    // console.log('form :>>', form);
 
     if (!form.userName) {
       setErrors(prev => {
@@ -73,6 +87,14 @@ const Register = () => {
         return {...prev, password: 'Please add a password'};
       });
     }
+    if (
+      Object.values(form).length === 5 &&
+      Object.values(form).every(item => item.trim().length > 0) &&
+      Object.values(errors).every(item => !item)
+    ) {
+      register(form)(authDispatch);
+      // console.log('11111', 11111);
+    }
   };
 
   return (
@@ -81,6 +103,8 @@ const Register = () => {
       onChange={onChange}
       form={form}
       errors={errors}
+      error={error}
+      loading={loading}
     />
   );
 };
