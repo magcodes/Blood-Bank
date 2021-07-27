@@ -6,6 +6,7 @@ import Container from '../../components/common/Container';
 import CustomButton from '../../components/common/CustomButton';
 import Input from '../../components/common/Input';
 import {LOGIN} from '../../constants/routeNames';
+import Message from '../../components/common/Message';
 import styles from './styles';
 
 const RegisterComponent = ({
@@ -31,15 +32,24 @@ const RegisterComponent = ({
         <Text style={styles.subTitle}>Create a free account</Text>
 
         <View style={styles.form}>
-          {error?.error && <Text>{error.error}</Text>}
+          {error?.error && (
+            <Message
+              retry
+              danger
+              retryFn={() => {
+                console.log('222', 222);
+              }}
+              message={error?.error}
+            />
+          )}
           <Input
             label="Username"
             iconPosition="right"
             placeholder="Enter Username"
+            error={errors.userName || error?.username?.[0]}
             onChangeText={value => {
               onChange({name: 'userName', value});
             }}
-            error={errors.userName || error?.username?.[0]}
           />
 
           <Input

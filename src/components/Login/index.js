@@ -6,9 +6,11 @@ import Container from '../../components/common/Container';
 import CustomButton from '../../components/common/CustomButton';
 import Input from '../../components/common/Input';
 import {REGISTER} from '../../constants/routeNames';
+import Message from '../../components/common/Message';
+import colors from '../../assets/theme/colors';
 import styles from './styles';
 
-const LoginComponent = () => {
+const LoginComponent = ({error, onChange, onSubmit, loading}) => {
   const {navigate} = useNavigation();
   return (
     <Container>
@@ -24,11 +26,21 @@ const LoginComponent = () => {
         <Text style={styles.subTitle}>Please, login here</Text>
 
         <View style={styles.form}>
+          {error && !error.error && (
+            <Message
+              onDismiss={() => {}}
+              danger
+              message="Invalid credentials"
+            />
+          )}
+          {error?.error && <Message danger onDismiss message={error?.error} />}
           <Input
             label="Username"
             iconPosition="right"
             placeholder="Enter Username"
-            // error={'This field is required'}
+            onChangeText={value => {
+              onChange({name: 'userName', value});
+            }}
           />
 
           <Input
@@ -37,9 +49,18 @@ const LoginComponent = () => {
             icon={<Text>Show</Text>}
             secureTextEntry={true}
             iconPosition="right"
+            onChangeText={value => {
+              onChange({name: 'password', value});
+            }}
           />
 
-          <CustomButton primary title="Submit" />
+          <CustomButton
+            disabled={loading}
+            onPress={onSubmit}
+            loading={loading}
+            primary
+            title="Submit"
+          />
 
           <View style={styles.createSection}>
             <Text style={styles.infoText}>Need a new account?</Text>

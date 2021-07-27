@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import AuthNavigator from './AuthNavigator';
-import DrawerNavigator from './DrawerNavigator';
+import MainNavigator from './MainNavigator';
 import {GlobalContext} from '../context/Provider';
 
 const AppNavContainer = () => {
@@ -13,7 +13,7 @@ const AppNavContainer = () => {
 
   return (
     <NavigationContainer>
-      {isLoggedIn ? <DrawerNavigator /> : <AuthNavigator />}
+      {!isLoggedIn ? <MainNavigator /> : <AuthNavigator />}
     </NavigationContainer>
   );
 };

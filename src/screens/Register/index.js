@@ -23,14 +23,16 @@ const Register = () => {
     if (data) {
       navigate(LOGIN);
     }
-  }, [data, navigate]);
+  }, [data]);
 
   useFocusEffect(
     React.useCallback(() => {
-      if (data || error) {
-        clearAuthState()(authDispatch);
-      }
-    }, [authDispatch, data, error]),
+      return () => {
+        if (data || error) {
+          clearAuthState()(authDispatch);
+        }
+      };
+    }, [data, error]),
   );
 
   const onChange = ({name, value}) => {
@@ -60,8 +62,6 @@ const Register = () => {
   };
 
   const onSubmit = () => {
-    // console.log('form :>>', form);
-
     if (!form.userName) {
       setErrors(prev => {
         return {...prev, userName: 'Please add a username'};

@@ -1,25 +1,26 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import {
-  CONTACT_DETAIL,
-  CONTACT_LIST,
-  CREATE_CONTACT,
+  DONOR_DETAILS,
+  SEARCH_DONOR,
+  BLOOD_BANK,
   SETTINGS,
 } from '../constants/routeNames';
-import Contacts from '../screens/Contacts';
-import ContactDetail from '../screens/ContactDetail';
-import CreateContact from '../screens/CreateContact';
+import SearchDonor from '../screens/SearchDonor';
+import DonorDetails from '../screens/DonorDetails';
+import BloodBank from '../screens/BloodBank';
 import Settings from '../screens/Settings';
+import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 
 const HomeNavigator = () => {
-  const HomeStack = createStackNavigator();
+  const HomeTab = createMaterialTopTabNavigator();
   return (
-    <HomeStack.Navigator initialRouteName={CONTACT_LIST}>
-      <HomeStack.Screen name={CONTACT_LIST} component={Contacts} />
-      <HomeStack.Screen name={CONTACT_DETAIL} component={ContactDetail} />
-      <HomeStack.Screen name={CREATE_CONTACT} component={CreateContact} />
-      <HomeStack.Screen name={SETTINGS} component={Settings} />
-    </HomeStack.Navigator>
+    <HomeTab.Navigator initialRouteName={SEARCH_DONOR}>
+      <HomeTab.Screen name={SEARCH_DONOR} component={SearchDonor} />
+      <HomeTab.Screen name={BLOOD_BANK} component={BloodBank} />
+      <HomeTab.Screen name={DONOR_DETAILS} component={DonorDetails} />
+      {/* <HomeTab.Screen name={SETTINGS} component={Settings} /> */}
+    </HomeTab.Navigator>
   );
 };
 
