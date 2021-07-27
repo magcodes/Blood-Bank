@@ -15,12 +15,17 @@ const CustomButton = ({
   primary,
   danger,
   onPress,
+  color,
+  style,
 }) => {
   const [focused, setFocused] = React.useState(false);
 
   const getBgColor = () => {
     if (disabled) {
       return colors.grey;
+    }
+    if (color) {
+      return color;
     }
     if (primary) {
       return colors.primary;
@@ -37,7 +42,7 @@ const CustomButton = ({
     <TouchableOpacity
       disabled={disabled}
       onPress={onPress}
-      style={[styles.wrapper, {backgroundColor: getBgColor()}]}>
+      style={[styles.wrapper, {backgroundColor: getBgColor()}, style]}>
       <View style={[styles.loaderSection]}>
         {loading && (
           <ActivityIndicator
