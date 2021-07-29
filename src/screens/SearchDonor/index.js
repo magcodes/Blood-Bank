@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import {DonorItem} from './components';
 import styles from './styles';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 const SearchDonor = () => {
   const [activeDonor, setActiveDonor] = useState(null);
@@ -63,7 +63,7 @@ const SearchDonor = () => {
                 <Text>Address Line 1</Text>
                 <TouchableOpacity style={styles.phoneWrapper}>
                   {/* <Text>Icon</Text> */}
-                  <Icon name="whatsapp" backgroundColor="#3b5998" />
+                  <FontAwesome.Button name="whatsapp" backgroundColor="green" />
                   <Text style={styles.phoneNumber}>{activeDonor.phone}</Text>
                 </TouchableOpacity>
               </View>

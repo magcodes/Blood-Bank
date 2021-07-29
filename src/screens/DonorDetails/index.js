@@ -79,12 +79,12 @@ const ContactDetail = () => {
       </View>
       <CustomButton
         title="Update"
-        color="grey"
+        color="darkgrey"
         style={{marginHorizontal: 20, marginTop: 20}}
       />
       <CustomButton
         title="Cancel"
-        color="grey"
+        color="darkgrey"
         style={{marginHorizontal: 20, marginTop: 20}}
       />
     </ScrollView>

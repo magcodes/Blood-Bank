@@ -54,7 +54,7 @@ const BloodBank = () => {
         </View>
         <CustomButton
           title="Request"
-          color="grey"
+          color="darkgrey"
           style={{marginHorizontal: 20, marginTop: 30}}
         />
       </View>

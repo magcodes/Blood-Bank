@@ -4,7 +4,7 @@ import colors from '../../assets/theme/colors';
 export default StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'crimson',
+    backgroundColor: '#bb0a1e',
   },
 
   listHeaderStyle: {

@@ -15,7 +15,7 @@ import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs
 const HomeNavigator = () => {
   const HomeTab = createMaterialTopTabNavigator();
   return (
-    <HomeTab.Navigator initialRouteName={SEARCH_DONOR}>
+    <HomeTab.Navigator initialRouteName={SEARCH_DONOR} style>
       <HomeTab.Screen name={SEARCH_DONOR} component={SearchDonor} />
       <HomeTab.Screen name={BLOOD_BANK} component={BloodBank} />
       <HomeTab.Screen name={DONOR_DETAILS} component={DonorDetails} />

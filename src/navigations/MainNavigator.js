@@ -3,7 +3,8 @@ import {createStackNavigator} from '@react-navigation/stack';
 import HomeNavigator from './HomeNavigator';
 import {HOME_NAVIGATOR} from '../constants/routeNames';
 import {Button, StyleSheet, Text, View, TouchableOpacity} from 'react-native';
-import Icon from 'react-native-vector-icons/Entypo';
+import Entypo from 'react-native-vector-icons/Entypo';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {useState} from 'react';
 
 const Main = createStackNavigator();
@@ -18,18 +19,22 @@ const MainNavigator = () => {
           name={HOME_NAVIGATOR}
           component={HomeNavigator}
           options={{
-            headerStyle: {backgroundColor: '#000'},
-            headerTitleStyle: {color: 'white', fontWeight: 'bold'},
+            headerStyle: {backgroundColor: '#303030'},
+            headerTitleStyle: {
+              color: 'white',
+              fontWeight: 'bold',
+              marginLeft: -20,
+            },
+            headerLeft: () => (
+              <MaterialCommunityIcons.Button
+                name="blood-bag"
+                backgroundColor="red"
+              />
+            ),
             headerRight: () => (
-              // <Button
-              //   onPress={() => alert('This is a button!')}
-              //   title="Info"
-              //   color="#fff"
-              // />
-              // const myButton = (
-              <Icon.Button
+              <Entypo.Button
                 name="dots-three-vertical"
-                backgroundColor="#000"
+                backgroundColor="#303030"
                 onPress={() => setShowModal(!showModal)}
               />
             ),
