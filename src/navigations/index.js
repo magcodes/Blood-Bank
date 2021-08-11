@@ -13,7 +13,7 @@ const AppNavContainer = () => {
 
   return (
     <NavigationContainer>
-      {!isLoggedIn ? <MainNavigator /> : <AuthNavigator />}
+      {isLoggedIn ? <MainNavigator /> : <AuthNavigator />}
     </NavigationContainer>
   );
 };

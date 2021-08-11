@@ -13,7 +13,8 @@ export default StyleSheet.create({
     fontSize: 20,
     textAlign: 'center',
     paddingTop: 20,
-    fontWeight: '500',
+    fontWeight: 'bold',
+    color: 'red',
   },
 
   subTitle: {
@@ -21,6 +22,7 @@ export default StyleSheet.create({
     textAlign: 'center',
     paddingVertical: 20,
     fontWeight: '500',
+    color: 'red',
   },
 
   form: {

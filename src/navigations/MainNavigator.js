@@ -44,7 +44,7 @@ const MainNavigator = () => {
       {showModal && (
         <View style={styles.modal}>
           <TouchableOpacity activeOpacity={0.5} style={styles.modalItem}>
-            <Text style={styles.textColor}> Setting</Text>
+            <Text style={styles.textColor}> Settings</Text>
           </TouchableOpacity>
           <TouchableOpacity activeOpacity={0.5} style={styles.modalItem}>
             <Text style={styles.textColor}> Logout </Text>

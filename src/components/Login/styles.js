@@ -2,6 +2,10 @@ import {StyleSheet} from 'react-native';
 import colors from '../../assets/theme/colors';
 
 export default StyleSheet.create({
+  container: {
+    // backgroundColor: '#ffcccc',
+  },
+
   logoImage: {
     height: 200,
     width: 200,
@@ -13,7 +17,8 @@ export default StyleSheet.create({
     fontSize: 20,
     textAlign: 'center',
     paddingTop: 20,
-    fontWeight: '500',
+    color: 'red',
+    fontWeight: 'bold',
   },
 
   subTitle: {
@@ -21,10 +26,12 @@ export default StyleSheet.create({
     textAlign: 'center',
     paddingVertical: 20,
     fontWeight: '500',
+    color: 'red',
   },
 
   form: {
     paddingTop: 20,
+    opacity: 5,
   },
 
   createSection: {

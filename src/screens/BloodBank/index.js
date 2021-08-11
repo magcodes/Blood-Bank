@@ -14,35 +14,35 @@ const BloodBank = () => {
         <View style={styles.myDetails}>
           <View style={styles.row}>
             <Text style={styles.availableBloodType}>A+ : </Text>
-            <Text style={styles.availableBloodQuantity}>35</Text>
+            <Text style={styles.availableBloodQuantity}>05</Text>
           </View>
           <View style={styles.row}>
             <Text style={styles.availableBloodType}>A- : </Text>
-            <Text style={styles.availableBloodQuantity}>35</Text>
+            <Text style={styles.availableBloodQuantity}>15</Text>
           </View>
           <View style={styles.row}>
             <Text style={styles.availableBloodType}>B+ : </Text>
-            <Text style={styles.availableBloodQuantity}>35</Text>
+            <Text style={styles.availableBloodQuantity}>20</Text>
           </View>
           <View style={styles.row}>
             <Text style={styles.availableBloodType}>B- : </Text>
-            <Text style={styles.availableBloodQuantity}>35</Text>
+            <Text style={styles.availableBloodQuantity}>16</Text>
           </View>
           <View style={styles.row}>
             <Text style={styles.availableBloodType}>O+ : </Text>
-            <Text style={styles.availableBloodQuantity}>35</Text>
+            <Text style={styles.availableBloodQuantity}>27</Text>
           </View>
           <View style={styles.row}>
             <Text style={styles.availableBloodType}>O- : </Text>
-            <Text style={styles.availableBloodQuantity}>35</Text>
+            <Text style={styles.availableBloodQuantity}>13</Text>
           </View>
           <View style={styles.row}>
-            <Text style={styles.availableBloodType}>AB+ : </Text>
-            <Text style={styles.availableBloodQuantity}>35</Text>
+            <Text style={styles.availableBloodType}>AB+ :</Text>
+            <Text style={styles.availableBloodQuantity}>07</Text>
           </View>
           <View style={styles.row}>
-            <Text style={styles.availableBloodType}>AB- : </Text>
-            <Text style={styles.availableBloodQuantity}>35</Text>
+            <Text style={styles.availableBloodType}>AB- :</Text>
+            <Text style={styles.availableBloodQuantity}>30</Text>
           </View>
         </View>
         <View style={styles.searchSection}>

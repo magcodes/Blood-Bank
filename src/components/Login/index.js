@@ -13,7 +13,7 @@ import styles from './styles';
 const LoginComponent = ({error, onChange, onSubmit, loading}) => {
   const {navigate} = useNavigation();
   return (
-    <Container>
+    <Container style={styles.container}>
       <Image
         height={70}
         width={70}
